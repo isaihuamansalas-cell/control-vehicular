@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniConnect - Asistencia Digital</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="dashboard-body">
+
+  <header class="topbar">
+    <div>
+      <h2>UniConnect</h2>
+      <p>Asistencia digital con firma</p>
+    </div>
+
+    <div class="topbar-actions">
+      <button id="backBtn" class="secondary-btn">Volver</button>
+      <button id="logoutBtn" class="logout-btn">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+
+    <section class="welcome-card">
+      <h1>Módulo de Asistencia Digital</h1>
+      <p>Registra la asistencia diaria de los alumnos y valida su presencia mediante firma en pantalla.</p>
+    </section>
+
+    <section id="attendanceFormSection" class="form-section">
+      <h2>Registrar asistencia</h2>
+
+      <form id="attendanceForm" class="user-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fechaAsistencia">Fecha</label>
+            <input type="date" id="fechaAsistencia" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cursoAsistencia">Curso</label>
+            <input type="text" id="cursoAsistencia" placeholder="Ejemplo: Matemática I" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dniAlumnoAsistencia">DNI del alumno</label>
+            <input type="text" id="dniAlumnoAsistencia" maxlength="8" required>
+          </div>
+
+          <div class="form-group">
+            <label for="nombreAlumnoAsistencia">Nombre del alumno</label>
+            <input type="text" id="nombreAlumnoAsistencia" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="areaAlumnoAsistencia">Área académica</label>
+            <input type="text" id="areaAlumnoAsistencia" required>
+          </div>
+
+          <div class="form-group">
+            <label for="estadoAsistencia">Estado</label>
+            <select id="estadoAsistencia" required>
+              <option value="Presente">Presente</option>
+              <option value="Tardanza">Tardanza</option>
+              <option value="Falta">Falta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="observacionAsistencia">Observación</label>
+          <input type="text" id="observacionAsistencia" placeholder="Ejemplo: llegó 10 minutos tarde">
+        </div>
+
+        <div class="signature-box">
+          <label>Firma digital del alumno</label>
+
+          <canvas id="signatureCanvas" width="600" height="220"></canvas>
+
+          <div class="signature-actions">
+            <button type="button" id="clearSignatureBtn" class="secondary-btn">
+              Limpiar firma
+            </button>
+          </div>
+        </div>
+
+        <button type="submit">Guardar asistencia</button>
+      </form>
+
+      <p id="attendanceMessage" class="message"></p>
+    </section>
+
+    <section class="table-section">
+      <h2>Asistencias registradas</h2>
+
+      <div class="search-box">
+        <input type="text" id="searchAttendance" placeholder="Buscar por alumno, DNI, curso, fecha o estado...">
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Curso</th>
+              <th>Alumno</th>
+              <th>DNI</th>
+              <th>Área</th>
+              <th>Estado</th>
+              <th>Firma</th>
+              <th>Observación</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+
+          <tbody id="attendanceTableBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/asistencia.js"></script>
+</body>
+</html>

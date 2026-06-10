@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e40af);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.login-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.login-card h1 {
+  text-align: center;
+  color: #1e3a8a;
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #334155;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.message {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.message.error {
+  color: #dc2626;
+}
+
+.message.success {
+  color: #16a34a;
+}
+
+.test-users {
+  margin-top: 25px;
+  padding: 15px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.test-users h3 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+/* ========================= */
+/* ESTILOS DEL DASHBOARD */
+/* ========================= */
+
+.dashboard-body {
+  min-height: 100vh;
+  background: #f1f5f9;
+  display: block;
+}
+
+.topbar {
+  width: 100%;
+  background: #1e3a8a;
+  color: white;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar h2 {
+  font-size: 26px;
+}
+
+.topbar p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.logout-btn {
+  width: auto;
+  background: #dc2626;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.welcome-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-card h1 {
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.welcome-card p {
+  color: #475569;
+}
+
+.role-panel {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.role-panel h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.menu-card {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  background: #dbeafe;
+}
+
+.menu-card h3 {
+  color: #1e40af;
+  margin-bottom: 8px;
+}
+
+.menu-card p {
+  color: #475569;
+  font-size: 14px;
+}
+
+/* Responsive para celular */
+@media (max-width: 600px) {
+  .topbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+
+  .dashboard-container {
+    margin: 15px auto;
+    padding: 15px;
+  }
+}
+
+/* ========================= */
+/* GESTIÓN DE USUARIOS */
+/* ========================= */
+
+.topbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.secondary-btn {
+  width: auto;
+  background: #475569;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.secondary-btn:hover {
+  background: #334155;
+}
+
+.form-section,
+.table-section {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2,
+.table-section h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.user-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  background: white;
+}
+
+.search-box {
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+thead {
+  background: #1e3a8a;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+.user-photo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #cbd5e1;
+}
+
+.delete-btn {
+  width: auto;
+  background: #dc2626;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: #dbeafe;
+  color: #1e40af;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .user-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .secondary-btn,
+  .logout-btn {
+    width: 100%;
+  }
+}
+
+/* ========================= */
+/* CONTROL VEHICULAR */
+/* ========================= */
+
+.vehicle-photo {
+  width: 70px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #cbd5e1;
+}
+
+.plate-photo {
+  width: 70px;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #cbd5e1;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.status-autorizado {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-pendiente {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.status-restringido {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ========================= */
+/* ASISTENCIA DIGITAL */
+/* ========================= */
+
+.signature-box {
+  margin-bottom: 20px;
+}
+
+.signature-box label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-weight: bold;
+}
+
+#signatureCanvas {
+  width: 100%;
+  max-width: 600px;
+  height: 220px;
+  border: 2px dashed #94a3b8;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: crosshair;
+  display: block;
+  touch-action: none;
+}
+
+.signature-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.signature-preview {
+  width: 120px;
+  height: 55px;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.attendance-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.attendance-presente {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.attendance-tardanza {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.attendance-falta {
+  background: #fee2e2;
+  color: #991b1b;
+}
+

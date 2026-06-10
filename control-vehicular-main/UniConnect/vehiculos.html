@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniConnect - Control Vehicular</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="dashboard-body">
+
+  <header class="topbar">
+    <div>
+      <h2>UniConnect</h2>
+      <p>Control vehicular universitario</p>
+    </div>
+
+    <div class="topbar-actions">
+      <button id="backBtn" class="secondary-btn">Volver</button>
+      <button id="logoutBtn" class="logout-btn">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+
+    <section class="welcome-card">
+      <h1>Módulo de Control Vehicular</h1>
+      <p>Registra, consulta y administra los vehículos vinculados a usuarios de la universidad.</p>
+    </section>
+
+    <section id="vehicleFormSection" class="form-section">
+      <h2>Registrar vehículo</h2>
+
+      <form id="vehicleForm" class="user-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dniPropietario">DNI del propietario</label>
+            <input type="text" id="dniPropietario" maxlength="8" required>
+          </div>
+
+          <div class="form-group">
+            <label for="nombrePropietario">Nombre del propietario</label>
+            <input type="text" id="nombrePropietario" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="areaPropietario">Área académica</label>
+            <input type="text" id="areaPropietario" required>
+          </div>
+
+          <div class="form-group">
+            <label for="placa">Número de placa</label>
+            <input type="text" id="placa" placeholder="Ejemplo: ABC-123" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" placeholder="Ejemplo: Toyota" required>
+          </div>
+
+          <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" placeholder="Ejemplo: Corolla" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" id="color" placeholder="Ejemplo: Blanco" required>
+          </div>
+
+          <div class="form-group">
+            <label for="tipoVehiculo">Tipo de vehículo</label>
+            <select id="tipoVehiculo" required>
+              <option value="">Seleccione una opción</option>
+              <option value="Auto">Auto</option>
+              <option value="Moto">Moto</option>
+              <option value="Camioneta">Camioneta</option>
+              <option value="Bicicleta">Bicicleta</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="estadoVehiculo">Estado</label>
+            <select id="estadoVehiculo" required>
+              <option value="Autorizado">Autorizado</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Restringido">Restringido</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="observacionesVehiculo">Observaciones</label>
+            <input type="text" id="observacionesVehiculo" placeholder="Ejemplo: ingreso autorizado">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fotoVehiculo">Foto del vehículo</label>
+            <input type="file" id="fotoVehiculo" accept="image/*">
+          </div>
+
+          <div class="form-group">
+            <label for="fotoPlaca">Foto de la placa</label>
+            <input type="file" id="fotoPlaca" accept="image/*">
+          </div>
+        </div>
+
+        <button type="submit">Guardar vehículo</button>
+      </form>
+
+      <p id="vehicleMessage" class="message"></p>
+    </section>
+
+    <section class="table-section">
+      <h2>Vehículos registrados</h2>
+
+      <div class="search-box">
+        <input type="text" id="searchVehicle" placeholder="Buscar por propietario, DNI, placa, marca, color o área...">
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Vehículo</th>
+              <th>Placa</th>
+              <th>Propietario</th>
+              <th>DNI</th>
+              <th>Área</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Color</th>
+              <th>Tipo</th>
+              <th>Estado</th>
+              <th>Placa Foto</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+
+          <tbody id="vehiclesTableBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/vehiculos.js"></script>
+</body>
+</html>

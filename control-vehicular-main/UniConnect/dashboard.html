@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniConnect - Dashboard</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-body">
+
+  <header class="topbar">
+    <div>
+      <h2>UniConnect</h2>
+      <p>Sistema Integral Universitario</p>
+    </div>
+
+    <button id="logoutBtn" class="logout-btn">Cerrar sesión</button>
+  </header>
+
+  <main class="dashboard-container">
+
+    <section class="welcome-card">
+      <h1 id="welcomeTitle">Bienvenido</h1>
+      <p id="userInfo">Cargando información del usuario...</p>
+    </section>
+
+    <section class="role-panel">
+      <h2 id="roleTitle">Panel del usuario</h2>
+
+      <div id="menuOptions" class="menu-grid">
+        <!-- Aquí JavaScript colocará las opciones según el rol -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
